@@ -3,6 +3,7 @@ package com.example.xogame;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,8 +30,17 @@ public class XoActivity extends AppCompatActivity {
                 return;
             if(counter%2==0){
                 clickedButton.setText("X");
+
+                Resources.Theme theme = getTheme();
+                int color = getResources().getColor(R.color.x_COLOR, theme);
+
+                clickedButton.setTextColor(color);
+
             }else {
                 clickedButton.setText("O");
+                Resources.Theme theme = getTheme();
+                int color = getResources().getColor(R.color.o_COLOR, theme);
+                clickedButton.setTextColor(color);
             }
             counter++;
             if(checkWinner("X")){
@@ -84,15 +94,12 @@ public class XoActivity extends AppCompatActivity {
                 .getText().toString().equals(playerSymbol)
         ){
             return true;
-        }if(((Button)mainView.findViewWithTag("2")) //diagonal
-                .getText().toString().equals(playerSymbol)
-                && ((Button)mainView.findViewWithTag((4)+""))
-                .getText().toString().equals(playerSymbol)
-                && ((Button)mainView.findViewWithTag((6)+""))
-                .getText().toString().equals(playerSymbol)
-        ){
-            return true;
         }
-        return false;
+        return ((Button) mainView.findViewWithTag("2")) //diagonal
+                .getText().toString().equals(playerSymbol)
+                && ((Button) mainView.findViewWithTag((4) + ""))
+                .getText().toString().equals(playerSymbol)
+                && ((Button) mainView.findViewWithTag((6) + ""))
+                .getText().toString().equals(playerSymbol);
     }
 }
