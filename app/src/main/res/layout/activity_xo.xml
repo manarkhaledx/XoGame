@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/xo_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:onClick="onPlayerClick"
+    tools:context=".XoActivity">
+
+    <TextView
+        android:id="@+id/tv_playerTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="#A8E2BE00"
+        android:fontFamily="@font/bevan"
+        android:padding="30dp"
+        android:text="player2(O)"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_playerOne"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_playerOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="#A948D2FE"
+        android:fontFamily="@font/bevan"
+        android:padding="30dp"
+        android:text="player1(X)"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tv_playerTwo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_playerOneScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bevan"
+        android:text="0"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_playerOne"
+        app:layout_constraintEnd_toEndOf="@+id/tv_playerOne"
+        app:layout_constraintStart_toStartOf="@+id/tv_playerOne" />
+
+    <TextView
+        android:id="@+id/tv_playerTwoScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bevan"
+        android:text="0"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_playerTwo"
+        app:layout_constraintEnd_toEndOf="@+id/tv_playerTwo"
+
+        app:layout_constraintStart_toStartOf="@+id/tv_playerTwo" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_2"
+        android:layout_width="107dp"
+        android:layout_height="116dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/xO_btn"
+        android:fontFamily="@font/bevan"
+        android:onClick="onPlayerClick"
+        android:tag="1"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toTopOf="@id/gl_1sthor"
+        app:layout_constraintEnd_toStartOf="@+id/gl_2ndvert"
+        app:layout_constraintStart_toEndOf="@id/gl_1stvert"
+        tools:text="x" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_5"
+        android:layout_width="107dp"
+        android:layout_height="116dp"
+
+
+        android:backgroundTint="@color/xO_btn"
+        android:fontFamily="@font/bevan"
+        android:onClick="onPlayerClick"
+        android:tag="4"
+        android:textSize="40sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/v_horizontal2"
+        app:layout_constraintEnd_toStartOf="@+id/gl_2ndvert"
+        app:layout_constraintStart_toStartOf="@+id/gl_1stvert"
+        app:layout_constraintTop_toBottomOf="@+id/v_horizontal1"
+        tools:text="x" />
+
+    <View
+        android:id="@+id/v_vertical2"
+        android:layout_width="5dp"
+        android:layout_height="0dp"
+        android:background="#BC4F266C"
+        app:layout_constraintBottom_toTopOf="@id/gl_bot"
+        app:layout_constraintEnd_toEndOf="@+id/gl_2ndvert"
+        app:layout_constraintStart_toStartOf="@+id/gl_2ndvert"
+        app:layout_constraintTop_toBottomOf="@id/gl_top"
+        tools:layout_editor_absoluteX="337dp"
+        tools:layout_editor_absoluteY="154dp" />
+
+    <View
+        android:id="@+id/v_vertical1"
+        android:layout_width="5dp"
+        android:layout_height="0dp"
+        android:background="#BC4F266C"
+        app:layout_constraintBottom_toTopOf="@id/gl_bot"
+        app:layout_constraintEnd_toEndOf="@+id/gl_1stvert"
+        app:layout_constraintStart_toStartOf="@+id/gl_1stvert"
+        app:layout_constraintTop_toBottomOf="@id/gl_top"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="178dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_6"
+        android:layout_width="107dp"
+        android:layout_height="116dp"
+        android:backgroundTint="@color/xO_btn"
+        android:fontFamily="@font/bevan"
+        android:onClick="onPlayerClick"
+        android:tag="5"
+        android:textSize="40sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_2ndhor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/gl_2ndvert"
+        app:layout_constraintTop_toBottomOf="@+id/v_horizontal1"
+        tools:text="x" />
+
+    <View
+        android:id="@+id/v_horizontal2"
+        android:layout_width="0dp"
+        android:layout_height="5dp"
+        android:background="#BC4F266C"
+        app:layout_constraintBottom_toBottomOf="@+id/gl_2ndhor"
+        app:layout_constraintEnd_toEndOf="@id/gl_last"
+        app:layout_constraintStart_toStartOf="@+id/gl_start"
+        app:layout_constraintTop_toTopOf="@+id/gl_2ndhor"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="489dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_3"
+        android:layout_width="107dp"
+        android:layout_height="116dp"
+
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/xO_btn"
+        android:fontFamily="@font/bevan"
+        android:onClick="onPlayerClick"
+        android:tag="2"
+        android:textSize="40sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toTopOf="@id/gl_1sthor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/gl_2ndvert"
+        tools:text="x" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_7"
+        android:layout_width="107dp"
+        android:layout_height="116dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/xO_btn"
+        android:fontFamily="@font/bevan"
+        android:onClick="onPlayerClick"
+        android:tag="6"
+        android:textSize="40sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/gl_1stvert"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gl_2ndhor"
+        tools:text="x" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_9"
+        android:layout_width="107dp"
+        android:layout_height="116dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/xO_btn"
+        android:fontFamily="@font/bevan"
+        android:onClick="onPlayerClick"
+        android:tag="8"
+        android:textSize="40sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/gl_2ndvert"
+        app:layout_constraintTop_toTopOf="@+id/gl_2ndhor"
+        tools:text="x" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_4"
+        android:layout_width="107dp"
+        android:layout_height="116dp"
+
+        android:backgroundTint="@color/xO_btn"
+        android:fontFamily="@font/bevan"
+        android:onClick="onPlayerClick"
+        android:tag="3"
+        android:textSize="40sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_2ndhor"
+        app:layout_constraintEnd_toStartOf="@+id/gl_1stvert"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/v_horizontal1"
+        tools:text="x" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_8"
+        android:layout_width="107dp"
+        android:layout_height="116dp"
+        android:layout_marginTop="10dp"
+
+        android:backgroundTint="@color/xO_btn"
+        android:fontFamily="@font/bevan"
+        android:onClick="onPlayerClick"
+        android:tag="7"
+        android:textSize="40sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/gl_2ndvert"
+        app:layout_constraintStart_toStartOf="@+id/gl_1stvert"
+        app:layout_constraintTop_toBottomOf="@+id/v_horizontal2"
+        tools:text="x" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_1"
+        android:layout_width="107dp"
+        android:layout_height="116dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/xO_btn"
+        android:fontFamily="@font/bevan"
+        android:onClick="onPlayerClick"
+        android:tag="0"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toTopOf="@id/gl_1sthor"
+        app:layout_constraintEnd_toStartOf="@+id/gl_1stvert"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="x" />
+
+    <View
+        android:id="@+id/v_horizontal1"
+        android:layout_width="0dp"
+        android:layout_height="5dp"
+        android:background="#BC4F266C"
+        app:layout_constraintBottom_toBottomOf="@+id/gl_1sthor"
+        app:layout_constraintEnd_toEndOf="@id/gl_last"
+        app:layout_constraintStart_toStartOf="@+id/gl_start"
+        app:layout_constraintTop_toTopOf="@+id/gl_1sthor"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="318dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_2ndvert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6666666" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_1stvert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3333333" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_1sthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_2ndhor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_bot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_last"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
