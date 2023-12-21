@@ -1,10 +1,14 @@
 package com.example.xogame;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -44,24 +48,30 @@ public class XoActivity extends AppCompatActivity {
             }
             counter++;
             if(checkWinner("X")){
-                initBoard();
+
                 player1score++;
                 playerOneScoreTV.setText(player1score+"");
+                initBoardWithDelay(500);
+                showDoYouWantToPlayAgainAlertDialog(this, "Player 1 Won !", "Do You want to play again?");
 
             }else if(checkWinner("O")){
-                initBoard();
+
                 player2score++;
                 playerTwoScoreTV.setText(player2score+"");
+                initBoardWithDelay(500);
+                showDoYouWantToPlayAgainAlertDialog(this, "Player 2 Won !", "Do You want to play again?");
             }else if(counter==9){
-                initBoard();
+                initBoardWithDelay(500);
+                showDoYouWantToPlayAgainAlertDialog(this, "Draw !", "Do You want to play again?");
             }
         }
-    void initBoard() {
-
-        for (int i = 0; i < 9; i++) {
-            ((Button) mainView.findViewWithTag(i + "")).setText("");
-        }
-        counter = 0;
+    void initBoardWithDelay(int delayMillis) {
+        new Handler().postDelayed(() -> {
+            for (int i = 0; i < 9; i++) {
+                ((Button) mainView.findViewWithTag(i + "")).setText("");
+            }
+            counter = 0;
+        }, delayMillis);
     }
 
 
@@ -101,5 +111,27 @@ public class XoActivity extends AppCompatActivity {
                 .getText().toString().equals(playerSymbol)
                 && ((Button) mainView.findViewWithTag((6) + ""))
                 .getText().toString().equals(playerSymbol);
+    }
+
+    private void showDoYouWantToPlayAgainAlertDialog(Context context, String title, String message) {
+        AlertDialog.Builder builder=new AlertDialog.Builder(context);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                playerOneScoreTV.setText("0");
+                playerTwoScoreTV.setText("0");
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }

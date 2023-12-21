@@ -9,6 +9,23 @@
     android:onClick="onPlayerClick"
     tools:context=".XoActivity">
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <TextView
         android:id="@+id/tv_playerTwo"
         android:layout_width="wrap_content"
