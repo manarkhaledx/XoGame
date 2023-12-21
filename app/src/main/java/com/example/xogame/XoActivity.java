@@ -28,43 +28,43 @@ public class XoActivity extends AppCompatActivity {
         int counter=0;
         int player1score=0;
         int player2score=0;
-        public void onPlayerClick(View view){
-            Button clickedButton=((Button)view);
-            if(!clickedButton.getText().toString().isEmpty())
+    public void onPlayerClick(View view) {
+        if (view instanceof Button) {
+            Button clickedButton = (Button) view;
+            if (!clickedButton.getText().toString().isEmpty())
                 return;
-            if(counter%2==0){
-                clickedButton.setText("X");
 
+            if (counter % 2 == 0) {
+                clickedButton.setText("X");
                 Resources.Theme theme = getTheme();
                 int color = getResources().getColor(R.color.x_COLOR, theme);
-
                 clickedButton.setTextColor(color);
-
-            }else {
+            } else {
                 clickedButton.setText("O");
                 Resources.Theme theme = getTheme();
                 int color = getResources().getColor(R.color.o_COLOR, theme);
                 clickedButton.setTextColor(color);
             }
+
             counter++;
-            if(checkWinner("X")){
 
+            if (checkWinner("X")) {
                 player1score++;
-                playerOneScoreTV.setText(player1score+"");
+                playerOneScoreTV.setText(String.valueOf(player1score));
                 initBoardWithDelay(500);
-                showDoYouWantToPlayAgainAlertDialog(this, "Player 1 Won !", "Do You want to play again?");
-
-            }else if(checkWinner("O")){
-
+                showDoYouWantToPlayAgainAlertDialog(this, "Player 1 Won!", "Do You want to play again?");
+            } else if (checkWinner("O")) {
                 player2score++;
-                playerTwoScoreTV.setText(player2score+"");
+                playerTwoScoreTV.setText(String.valueOf(player2score));
                 initBoardWithDelay(500);
-                showDoYouWantToPlayAgainAlertDialog(this, "Player 2 Won !", "Do You want to play again?");
-            }else if(counter==9){
+                showDoYouWantToPlayAgainAlertDialog(this, "Player 2 Won!", "Do You want to play again?");
+            } else if (counter == 9) {
                 initBoardWithDelay(500);
-                showDoYouWantToPlayAgainAlertDialog(this, "Draw !", "Do You want to play again?");
+                showDoYouWantToPlayAgainAlertDialog(this, "Draw!", "Do You want to play again?");
             }
         }
+    }
+
     void initBoardWithDelay(int delayMillis) {
         new Handler().postDelayed(() -> {
             for (int i = 0; i < 9; i++) {
@@ -129,6 +129,8 @@ public class XoActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 playerOneScoreTV.setText("0");
                 playerTwoScoreTV.setText("0");
+                player1score=0;
+                player2score=0;
             }
         });
         AlertDialog alertDialog = builder.create();
