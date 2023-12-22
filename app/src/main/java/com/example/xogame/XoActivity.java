@@ -33,7 +33,7 @@ public class XoActivity extends AppCompatActivity {
             Button clickedButton = (Button) view;
             if (!clickedButton.getText().toString().isEmpty())
                 return;
-
+//
             if (counter % 2 == 0) {
                 clickedButton.setText("X");
                 Resources.Theme theme = getTheme();
