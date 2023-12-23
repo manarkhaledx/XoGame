@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class XoActivity extends AppCompatActivity {
         TextView playerOneScoreTV;
@@ -127,6 +128,7 @@ public class XoActivity extends AppCompatActivity {
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(XoActivity.this, "Score reset", Toast.LENGTH_SHORT).show();
                 playerOneScoreTV.setText("0");
                 playerTwoScoreTV.setText("0");
                 player1score=0;
